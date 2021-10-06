@@ -1,11 +1,24 @@
 package dominio;
 
+import javax.persistence.*;
+
+@Entity 
+@Table
+
 public class Localidad {
 
+	@Column
 	private String nombre;
+	@Id
+	@Column
 	private Integer idLocalidad;
+	@Column
 	private Integer codPostal;
 	
+	
+	public Localidad() {
+		
+	}
 	
 	public Localidad(String nombre, Integer idLocalidad, Integer codPostal) {
 		super();

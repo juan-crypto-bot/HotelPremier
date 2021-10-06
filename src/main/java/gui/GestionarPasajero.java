@@ -63,8 +63,8 @@ public class GestionarPasajero extends JFrame {
 		btnDarDeAlta.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				final Principal v = new Principal();
-				v.setVisible(true);
+				final DarDeAltaPasajero ventanaDarDeAlta = new DarDeAltaPasajero();
+				ventanaDarDeAlta.setVisible(true);
 				dispose();
 			}
 		});

@@ -1,11 +1,20 @@
 package dominio;
 
+import javax.persistence.*;
+
+
 public class Banco {
-
+	
 	private String nombre;
-	private Integer telefono;
-	private Direccion direccion;
 
+	private Integer telefono;
+	
+	private Direccion direccion;
+	
+	
+	public Banco() {
+		
+	}
 	public Banco(String nombre, Integer telefono, Direccion direccion) {
 		this.nombre = nombre;
 		this.telefono = telefono;

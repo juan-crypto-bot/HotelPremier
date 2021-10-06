@@ -19,6 +19,7 @@ public class App {
 		emf = Persistence.createEntityManagerFactory("aplicacion");
 		manager = emf.createEntityManager();
 
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
