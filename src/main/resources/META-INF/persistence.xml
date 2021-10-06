@@ -11,6 +11,7 @@
 	
 	
 		<class> dominio.Localidad</class>
+		<class> dominio.Banco</class>
 		
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />

@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import dominio.Localidad;
 import gui.Principal;
 
 public class App {
@@ -23,8 +24,13 @@ public class App {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Principal frame = new Principal();
-					frame.setVisible(true);
+					
+					List<Localidad> localidad = (List<Localidad>) manager.createQuery("FROM Localidad").getResultList();
+					
+					System.out.println(localidad.size());
+					
+					//Principal frame = new Principal();
+					//frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

@@ -3,14 +3,15 @@ package dominio;
 import javax.persistence.*;
 
 @Entity 
-@Table
+@Table 
 
 public class Localidad {
 
 	@Column
 	private String nombre;
 	@Id
-	@Column
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column 
 	private Integer idLocalidad;
 	@Column
 	private Integer codPostal;

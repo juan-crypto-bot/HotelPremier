@@ -2,23 +2,33 @@ package dominio;
 
 import javax.persistence.*;
 
-
+@Entity
+@Table
 public class Banco {
 	
+	@Id
+	@Column
+	private Integer id_Banco;
+	@Column
 	private String nombre;
-
+	@Column
 	private Integer telefono;
+
 	
+	@OneToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="direccion_id",referencedColumnName="id_Direccion")
 	private Direccion direccion;
-	
+
+
 	
 	public Banco() {
+		
 		
 	}
 	public Banco(String nombre, Integer telefono, Direccion direccion) {
 		this.nombre = nombre;
 		this.telefono = telefono;
-		this.direccion = direccion;
+		//this.direccion = direccion;
 	}
 
 	public String getNombre() {
@@ -37,6 +47,7 @@ public class Banco {
 		this.telefono = telefono;
 	}
 
+	/*
 	public Direccion getDireccion() {
 		return direccion;
 	}
@@ -44,5 +55,5 @@ public class Banco {
 	public void setDireccion(Direccion direccion) {
 		this.direccion = direccion;
 	}
-
+*/
 }

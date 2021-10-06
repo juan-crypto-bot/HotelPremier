@@ -1,19 +1,52 @@
 package dominio;
 
-public class Direccion {
+import javax.persistence.*;
 
+@Entity
+@Table
+public class Direccion {
+	
+	@Id
+	@Column
+	private String id_Direccion;
+	@Column
 	private String calle;
+	@Column
 	private Integer numero;
+	@Column
 	private Integer piso;
+	@Column
 	private Integer dto;
 
-	public Direccion(String calle, Integer num, Integer piso, Integer dto) {
-
+	
+	
+	public Direccion () {
+		
+	}
+	
+	public Direccion(String id_Direccion, String calle, Integer numero, Integer piso, Integer dto) {
+		super();
+		this.id_Direccion = id_Direccion;
 		this.calle = calle;
-		this.numero = num;
+		this.numero = numero;
 		this.piso = piso;
 		this.dto = dto;
+	}
+	
+	
+	public Direccion(String calle, Integer numero, Integer piso, Integer dto) {
+		super();
+		this.calle = calle;
+		this.numero = numero;
+		this.piso = piso;
+		this.dto = dto;
+	}
 
+	public String getId_Direccion() {
+		return id_Direccion;
+	}
+	public void setId_Direccion(String id_Direccion) {
+		this.id_Direccion = id_Direccion;
 	}
 
 	public String getCalle() {

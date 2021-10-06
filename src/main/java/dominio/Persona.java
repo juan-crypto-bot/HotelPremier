@@ -25,5 +25,27 @@ public class Persona {
 	private String ocupacion;
 
 	private Integer telefono;
+	
+	public Persona(String apellido, String nombre, String tipoDocumento, Integer numeroDocumento,
+			Direccion direccion, Integer cuit, Date nacimiento, String correoElectronico, String ocupacion,
+			Integer telefono) {
+		super();
+		this.apellido = apellido;
+		this.nombre = nombre;
+		
+		if(tipoDocumento == "DNI" ) this.tipoDocumento = TipoDocumento.DNI;
+		if(tipoDocumento == "LC" ) this.tipoDocumento = TipoDocumento.LC;
+		if(tipoDocumento == "LE" ) this.tipoDocumento = TipoDocumento.LE;
+		if(tipoDocumento == "PASAPORTE" ) this.tipoDocumento = TipoDocumento.PASAPORTE;
+		if(tipoDocumento == "OTRO" ) this.tipoDocumento = TipoDocumento.OTRO;
+			
+		this.numeroDocumento = numeroDocumento;
+		this.direccion = direccion;
+		this.cuit = cuit;
+		this.nacimiento = nacimiento;
+		this.correoElectronico = correoElectronico;
+		this.ocupacion = ocupacion;
+		this.telefono = telefono;
+	}
 
 }

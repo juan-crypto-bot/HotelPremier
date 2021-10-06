@@ -7,7 +7,12 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
@@ -19,18 +24,19 @@ import java.util.Calendar;
 import javax.swing.JFormattedTextField;
 import javax.swing.JToggleButton;
 import javax.swing.SpinnerListModel;
+import javax.swing.JButton;
 
 public class DarDeAltaPasajero extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textFieldApellido;
-	private JTextField textFieldTelefono;
-	private JTextField textField_4;
-	private JTextField textField_6;
-	private JTextField textField_7;
-	private JTextField textField_8;
-	private JTextField textField_9;
-	private JTextField textField_10;
+	private JTextField textApellido;
+	private JTextField textTelefono;
+	private JTextField textCalle;
+	private JTextField textNombre;
+	private JTextField textNumeroDocumento;
+	private JTextField textNacionalidad;
+	private JTextField textEmail;
+	private JTextField textCuit;
 
 
 	/**
@@ -50,46 +56,46 @@ public class DarDeAltaPasajero extends JFrame {
 		panel_1.setLayout(null);
 		
 		
-		textFieldApellido = new JTextField();
-		textFieldApellido.setBounds(340, 50, 200, 20);
-		panel_1.add(textFieldApellido);
-		textFieldApellido.setColumns(10);
+		textApellido = new JTextField();
+		textApellido.setBounds(340, 50, 200, 20);
+		panel_1.add(textApellido);
+		textApellido.setColumns(10);
 		
-		textFieldTelefono = new JTextField();
-		textFieldTelefono.setColumns(10);
-		textFieldTelefono.setBounds(340, 260, 200, 20);
-		panel_1.add(textFieldTelefono);
+		textTelefono = new JTextField();
+		textTelefono.setColumns(10);
+		textTelefono.setBounds(340, 260, 200, 20);
+		panel_1.add(textTelefono);
 		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(970, 470, 200, 20);
-		panel_1.add(textField_4);
+		textCalle = new JTextField();
+		textCalle.setColumns(10);
+		textCalle.setBounds(970, 470, 200, 20);
+		panel_1.add(textCalle);
 		
-		textField_6 = new JTextField();
-		textField_6.setColumns(10);
-		textField_6.setBounds(970, 50, 200, 20);
-		panel_1.add(textField_6);
+		textNombre = new JTextField();
+		textNombre.setColumns(10);
+		textNombre.setBounds(970, 50, 200, 20);
+		panel_1.add(textNombre);
 		
-		textField_7 = new JTextField();
-		textField_7.setColumns(10);
-		textField_7.setBounds(970, 120, 200, 20);
-		panel_1.add(textField_7);
+		textNumeroDocumento = new JTextField();
+		textNumeroDocumento.setColumns(10);
+		textNumeroDocumento.setBounds(970, 120, 200, 20);
+		panel_1.add(textNumeroDocumento);
 		
-		textField_8 = new JTextField();
-		textField_8.setColumns(10);
-		textField_8.setBounds(970, 190, 200, 20);
-		panel_1.add(textField_8);
+		textNacionalidad = new JTextField();
+		textNacionalidad.setColumns(10);
+		textNacionalidad.setBounds(970, 190, 200, 20);
+		panel_1.add(textNacionalidad);
 		
-		textField_9 = new JTextField();
-		textField_9.setColumns(10);
-		textField_9.setBounds(970, 260, 200, 20);
-		panel_1.add(textField_9);
+		textEmail = new JTextField();
+		textEmail.setColumns(10);
+		textEmail.setBounds(970, 260, 200, 20);
+		panel_1.add(textEmail);
 		
-		textField_10 = new JTextField();
-		textField_10.setEnabled(false);
-		textField_10.setColumns(10);
-		textField_10.setBounds(970, 330, 200, 20);
-		panel_1.add(textField_10);
+		textCuit = new JTextField();
+		textCuit.setEnabled(false);
+		textCuit.setColumns(10);
+		textCuit.setBounds(970, 330, 200, 20);
+		panel_1.add(textCuit);
 		
 		
 		JLabel lblApellido = new JLabel("Apellido");
@@ -223,6 +229,10 @@ public class DarDeAltaPasajero extends JFrame {
 		spinnerDepto.setModel(new SpinnerListModel(new String[] {"A", "B", "C", "D", "E", "F", "G", "H"}));
 		spinnerDepto.setBounds(954, 540, 50, 20);
 		panel_1.add(spinnerDepto);
+		
+		JButton btnAceptar = new JButton("Aceptar");
+		btnAceptar.setBounds(1081, 603, 89, 23);
+		panel_1.add(btnAceptar);
 	
 		
 		JPanel panel_2 = new JPanel();
@@ -231,5 +241,21 @@ public class DarDeAltaPasajero extends JFrame {
 		setBounds(300, 150, 1280, 720);
 		setResizable(false);
 		setTitle("");
+		
+		
+		
+
+		btnAceptar.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				Direccion d = new Direccion();
+				Persona p = new Persona(textApellido.getText().toString(),textNombre.getText().toString(), comboBoxDocumento.getSelectedItem().toString(),
+				parseInt(textNumeroDocumento.getText().toString()),);
+				
+			
+		}
+	});
+
 	}
 }
