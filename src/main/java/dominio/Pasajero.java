@@ -3,6 +3,7 @@ package dominio;
 public class Pasajero {
 
 	private Integer id;
+	
 
 	public Pasajero(Integer id) {
 		this.id = id;
