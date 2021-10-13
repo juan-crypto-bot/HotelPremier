@@ -10,8 +10,7 @@
 	<persistence-unit name="aplicacion">
 	
 	
-		<class> dominio.Localidad</class>
-		<class> dominio.Banco</class>
+		<class> dominio.Persona</class>
 		
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />

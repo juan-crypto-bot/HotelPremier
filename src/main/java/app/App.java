@@ -25,12 +25,12 @@ public class App {
 			public void run() {
 				try {
 					
-					List<Localidad> localidad = (List<Localidad>) manager.createQuery("FROM Localidad").getResultList();
+					//List<Localidad> localidad = (List<Localidad>) manager.createQuery("FROM Localidad").getResultList();
 					
-					System.out.println(localidad.size());
+					//System.out.println(localidad.size());
 					
-					//Principal frame = new Principal();
-					//frame.setVisible(true);
+					Principal frame = new Principal();
+					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}

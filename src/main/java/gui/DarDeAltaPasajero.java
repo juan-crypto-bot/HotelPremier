@@ -6,6 +6,11 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import dao.PersonaDAO;
+import dao.PersonaDAO_Hibernate;
+import dominio.Persona;
+
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -34,9 +39,10 @@ public class DarDeAltaPasajero extends JFrame {
 	private JTextField textCalle;
 	private JTextField textNombre;
 	private JTextField textNumeroDocumento;
-	private JTextField textNacionalidad;
+	private JTextField textOcupacion;
 	private JTextField textEmail;
 	private JTextField textCuit;
+	private JTextField textNacionalidad;
 
 
 	/**
@@ -81,10 +87,10 @@ public class DarDeAltaPasajero extends JFrame {
 		textNumeroDocumento.setBounds(970, 120, 200, 20);
 		panel_1.add(textNumeroDocumento);
 		
-		textNacionalidad = new JTextField();
-		textNacionalidad.setColumns(10);
-		textNacionalidad.setBounds(970, 190, 200, 20);
-		panel_1.add(textNacionalidad);
+		textOcupacion = new JTextField();
+		textOcupacion.setColumns(10);
+		textOcupacion.setBounds(970, 190, 200, 20);
+		panel_1.add(textOcupacion);
 		
 		textEmail = new JTextField();
 		textEmail.setColumns(10);
@@ -139,10 +145,10 @@ public class DarDeAltaPasajero extends JFrame {
 		lblNumDocumento.setBounds(710, 120, 200, 30);
 		panel_1.add(lblNumDocumento);
 		
-		JLabel lblNacionalidad = new JLabel("Nacionalidad");
-		lblNacionalidad.setFont(new Font("Dialog", Font.PLAIN, 15));
-		lblNacionalidad.setBounds(710, 190, 140, 30);
-		panel_1.add(lblNacionalidad);
+		JLabel lblOcupacion = new JLabel("Ocupacion");
+		lblOcupacion.setFont(new Font("Dialog", Font.PLAIN, 15));
+		lblOcupacion.setBounds(710, 190, 140, 30);
+		panel_1.add(lblOcupacion);
 		
 		JLabel lblEmail = new JLabel("E-mail");
 		lblEmail.setFont(new Font("Dialog", Font.PLAIN, 15));
@@ -162,11 +168,6 @@ public class DarDeAltaPasajero extends JFrame {
 		comboBoxDocumento.setModel(new DefaultComboBoxModel(new String[] {"Tipo", "DNI", "LE", "LC", "PASAPORTE", "OTRO"}));
 		comboBoxDocumento.setBounds(390, 120, 150, 24);
 		panel_1.add(comboBoxDocumento);
-		
-		JSpinner spinnerDate = new JSpinner();
-		spinnerDate.setModel(new SpinnerDateModel(new Date(1633316402000L), null, null, Calendar.DAY_OF_YEAR));
-		spinnerDate.setBounds(450, 185, 90, 30);
-		panel_1.add(spinnerDate);
 		
 		JComboBox comboBoxPosicion = new JComboBox();
 		comboBoxPosicion.setFont(new Font("Dialog", Font.PLAIN, 15));
@@ -233,6 +234,31 @@ public class DarDeAltaPasajero extends JFrame {
 		JButton btnAceptar = new JButton("Aceptar");
 		btnAceptar.setBounds(1081, 603, 89, 23);
 		panel_1.add(btnAceptar);
+		
+		JLabel lblNacionalidad = new JLabel("Nacionalidad");
+		lblNacionalidad.setFont(new Font("Dialog", Font.PLAIN, 15));
+		lblNacionalidad.setBounds(80, 540, 140, 30);
+		panel_1.add(lblNacionalidad);
+		
+		textNacionalidad = new JTextField();
+		textNacionalidad.setColumns(10);
+		textNacionalidad.setBounds(340, 540, 200, 20);
+		panel_1.add(textNacionalidad);
+		
+		JComboBox comboBoxAño = new JComboBox();
+		comboBoxAño.setModel(new DefaultComboBoxModel(new String[] {"2021", "2020", "2019", "2020", "2019", "2020", "2019", "2020", "2019", "2020", "2019", "2020", "2019", "2020", "2019", "2020", "2019", "2020", "2019"}));
+		comboBoxAño.setBounds(490, 188, 50, 24);
+		panel_1.add(comboBoxAño);
+		
+		JComboBox comboBoxMes = new JComboBox();
+		comboBoxMes.setModel(new DefaultComboBoxModel(new String[] {"Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiempre", "Octubre", "Noviembre", "Diciembre"}));
+		comboBoxMes.setBounds(400, 188, 80, 24);
+		panel_1.add(comboBoxMes);
+		
+		JComboBox comboBoxDia = new JComboBox();
+		comboBoxDia.setModel(new DefaultComboBoxModel(new String[] {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
+		comboBoxDia.setBounds(340, 188, 45, 24);
+		panel_1.add(comboBoxDia);
 	
 		
 		JPanel panel_2 = new JPanel();
@@ -240,19 +266,46 @@ public class DarDeAltaPasajero extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(300, 150, 1280, 720);
 		setResizable(false);
-		setTitle("");
+		setTitle("dsa");
 		
 		
+		
+		
+		//persona.setNacimiento(Date.parse(textNacionalidad.getText().toString());
+	
 		
 
 		btnAceptar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				Direccion d = new Direccion();
-				Persona p = new Persona(textApellido.getText().toString(),textNombre.getText().toString(), comboBoxDocumento.getSelectedItem().toString(),
-				parseInt(textNumeroDocumento.getText().toString()),);
+
+				Persona persona = new Persona();
+				persona.setId(2);
+				persona.setApellido(textApellido.getText().toString());
+			/*
+				persona.setId(2);
+				persona.setApellido(textApellido.getText().toString());
+				persona.setNombre(textNombre.getText().toString());
+				persona.setTipoDocumento(comboBoxDocumento.getSelectedItem().toString());
+				persona.setNumeroDocumento(Integer.parseInt(textApellido.getText().toString()));
+			//	persona.setNacimiento()
+				persona.setOcupacion(textOcupacion.getText().toString());
+				persona.setTelefono(Integer.parseInt(textTelefono.getText().toString()));
+				persona.setCorreoElectronico(textEmail.getText().toString());
+				persona.setPosFrenteIVA(comboBoxPosicion.getSelectedItem().toString());
+				persona.setCuit(Integer.parseInt(textCuit.getText().toString()));
+				//direc
+				persona.setNacionalidad(textNacionalidad.getText().toString());
 				
+					//PersonaDAO pdao = new PersonaDAO_Hibernate();
+					
+					//pdao.guardarPersona(persona);
+				*/
+				
+				PersonaDAO pdao = new PersonaDAO_Hibernate();
+				System.out.println(persona.getApellido().toString());
+			pdao.guardarPersona(persona);
 			
 		}
 	});
